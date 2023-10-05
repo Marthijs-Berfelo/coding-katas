@@ -24,4 +24,12 @@ class PascalTriangleTest {
     fun zeroRowsResultsInEmptyList() {
         assertThat(triangle.create(0)).isEmpty()
     }
+
+    @Test
+    @DisplayName("create triangle for 1 row with result [1]")
+    fun singleRowTriangle() {
+        assertThat(triangle.create(1))
+                .hasSize(1)
+                .containsExactly(listOf(1))
+    }
 }
