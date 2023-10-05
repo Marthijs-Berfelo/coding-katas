@@ -30,4 +30,11 @@ class FizzBuzzTest {
         assertThat(kata.fizzBuzz(input))
                 .isEqualTo("Fizz")
     }
+    @Test
+    @DisplayName("return 'Fizz' when input is 6")
+    fun convertSixToFizz() {
+        val input = 6
+        assertThat(kata.fizzBuzz(input))
+                .isEqualTo("Fizz")
+    }
 }
