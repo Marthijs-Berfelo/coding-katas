@@ -18,8 +18,9 @@ class PascalTriangle {
                 (1..rows)
                         .map(::createTriangleRow)
                         .runningReduceIndexed {  index, previousRow, currentRow ->
-                            if (index < 1) currentRow
-                            else
+                            if (index < 1) {
+                                currentRow
+                            } else
                                 List(currentRow.size) { currentIndex ->
                                     if (currentIndex > 0 && currentIndex < previousRow.size) {
                                         previousRow[currentIndex - 1] + previousRow[currentIndex]
