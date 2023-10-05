@@ -16,7 +16,7 @@ class PascalTriangle {
                 emptyList()
             } else {
                 (1..rows)
-                        .map { List(it) { value -> value + 1L } }
+                        .map { createTriangleRow(it) }
                         .mapIndexed { index, currentRow ->
                             if (index < 1) currentRow
                             else
@@ -30,5 +30,7 @@ class PascalTriangle {
                         }
             }
                     .also { log.info("Pascal triangle with $rows rows: $it") }
+
+    private fun createTriangleRow(it: Int) = List(it) { value -> value + 1L }
 
 }
