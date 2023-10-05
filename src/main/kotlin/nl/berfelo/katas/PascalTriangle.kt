@@ -17,13 +17,13 @@ class PascalTriangle {
             } else {
                 (1..rows)
                         .map(::createTriangleRow)
-                        .mapIndexed { index, currentRow ->
+                        .runningReduceIndexed {  index, previousRow, currentRow ->
                             if (index < 1) currentRow
                             else
                                 currentRow
                                         .mapIndexed { currentIndex, value ->
-                                            if (currentIndex > 0 && currentIndex < currentRow.size -1)
-                                                value
+                                            if (currentIndex > 0 && currentIndex < previousRow.size)
+                                                previousRow[currentIndex - 1] + previousRow[currentIndex]
                                             else
                                                 1L
                                         }
