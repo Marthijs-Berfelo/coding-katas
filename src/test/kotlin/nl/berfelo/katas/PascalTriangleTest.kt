@@ -3,8 +3,10 @@ package nl.berfelo.katas
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.Timeout
+import java.util.concurrent.TimeUnit
 
-@DisplayName("Pascal triangle should")
+@DisplayName("Pascal's triangle should")
 class PascalTriangleTest {
 
     private val triangle = PascalTriangle()
@@ -83,5 +85,13 @@ class PascalTriangleTest {
                         listOf(1,8,28,56,70,56,28,8,1),
                         listOf(1,9,36,84,126,126,84,36,9,1),
                 )
+    }
+
+    @Test
+    @DisplayName("create triangle for 500 rows within 500 milliseconds")
+    @Timeout(value = 500, unit = TimeUnit.MILLISECONDS)
+    fun oneHundredRowsPerformance() {
+        assertThat(triangle.create(500))
+                .hasSize(500)
     }
 }
