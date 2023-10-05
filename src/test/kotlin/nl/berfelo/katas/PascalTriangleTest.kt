@@ -6,8 +6,7 @@ import org.junit.jupiter.api.Test
 
 @DisplayName("Pascal triangle should")
 class PascalTriangleTest {
-    // TODO: create triangle for 4 rows with result [1,3,3,1]
-    // TODO: create triangle for 5 rows with result [1,4,6,4,1] 
+    // TODO: create triangle for 5 rows with result [1,4,6,4,1]
     // TODO: create triangle for 6 rows with result [1,5,10,10,5,1] 
     // TODO: create triangle for 7 rows with result [1,6,15,20,15,6,1] 
     // TODO: create triangle for 8 rows with result [1,7,21,35,35,21,7,1] 
@@ -26,7 +25,6 @@ class PascalTriangleTest {
     @DisplayName("create triangle for 1 row with result [[1]]")
     fun singleRowTriangle() {
         assertThat(triangle.create(1))
-                .hasSize(1)
                 .containsExactly(listOf(1))
     }
 
@@ -34,7 +32,6 @@ class PascalTriangleTest {
     @DisplayName("create triangle for 2 rows with result [[1],[1,1]]")
     fun twoRowsTriangle() {
         assertThat(triangle.create(2))
-                .hasSize(2)
                 .containsExactly(
                         listOf(1),
                         listOf(1,1)
@@ -45,11 +42,22 @@ class PascalTriangleTest {
     @DisplayName("create triangle for 3 rows with result [[1],[1,1],[1,2,1]]")
     fun threeRowsTriangle() {
         assertThat(triangle.create(3))
-                .hasSize(3)
                 .containsExactly(
                         listOf(1),
                         listOf(1,1),
                         listOf(1,2,1),
+                )
+    }
+
+    @Test
+    @DisplayName("create triangle for 4 rows with result [[1],[1,1],[1,2,1],[1,3,3,1]]")
+    fun fourRowsTriangle() {
+        assertThat(triangle.create(4))
+                .containsExactly(
+                        listOf(1),
+                        listOf(1,1),
+                        listOf(1,2,1),
+                        listOf(1,3,3,1),
                 )
     }
 }
