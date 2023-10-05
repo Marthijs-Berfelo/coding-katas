@@ -19,7 +19,11 @@ class PascalTriangle {
                         .map(::createTriangleRow)
                         .runningReduceIndexed(::calculateTriangleRowValues)
             }
-                    .also { log.info("Pascal triangle with $rows rows: $it") }
+                    .also {
+                        log.info("Pascal triangle with $rows rows: $it")
+                        it.forEach { row -> log.atDebug().log { "$row" } }
+                        log.atDebug().log { "Pascal triangle completed" }
+                    }
 
     private fun calculateTriangleRowValues(index: Int, previousRow: List<Long>, currentRow: List<Long>) =
         if (index < 1) {
