@@ -6,13 +6,7 @@ import org.junit.jupiter.api.Test
 
 @DisplayName("Pascal triangle should")
 class PascalTriangleTest {
-    // TODO: create triangle for 5 rows with result [1,4,6,4,1]
-    // TODO: create triangle for 6 rows with result [1,5,10,10,5,1] 
-    // TODO: create triangle for 7 rows with result [1,6,15,20,15,6,1] 
-    // TODO: create triangle for 8 rows with result [1,7,21,35,35,21,7,1] 
-    // TODO: create triangle for 9 rows with result [1,8,28,56,70,56,28,8,1] 
-    // TODO: create triangle for 10 rows with result [1,9,36,84,126,84,36,9,1] 
-    
+
     private val triangle = PascalTriangle()
     
     @Test
@@ -71,6 +65,23 @@ class PascalTriangleTest {
                         listOf(1,2,1),
                         listOf(1,3,3,1),
                         listOf(1,4,6,4,1),
+                )
+    }
+    @Test
+    @DisplayName("create triangle for 10 rows")
+    fun tenRowsTriangle() {
+        assertThat(triangle.create(10))
+                .containsExactly(
+                        listOf(1),
+                        listOf(1,1),
+                        listOf(1,2,1),
+                        listOf(1,3,3,1),
+                        listOf(1,4,6,4,1),
+                        listOf(1,5,10,10,5,1),
+                        listOf(1,6,15,20,15,6,1),
+                        listOf(1,7,21,35,35,21,7,1),
+                        listOf(1,8,28,56,70,56,28,8,1),
+                        listOf(1,9,36,84,126,126,84,36,9,1),
                 )
     }
 }
