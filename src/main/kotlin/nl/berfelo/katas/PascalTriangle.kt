@@ -7,10 +7,10 @@ class PascalTriangle {
     private val log: Logger by lazy { LoggerFactory.getLogger(this::class.java) }
 
     fun create(rows: Long): List<List<Long>> =
-            if (rows == 1L) {
-                listOf(listOf(1L))
-            } else {
+            if (rows < 1L) {
                 emptyList()
+            } else {
+                listOf(listOf(1L))
             }
                         .also { log.info("Pascal triangle with $rows rows: $it") }
 
