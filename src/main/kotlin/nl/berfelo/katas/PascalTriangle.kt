@@ -17,19 +17,21 @@ class PascalTriangle {
             } else {
                 (1..rows)
                         .map(::createTriangleRow)
-                        .runningReduceIndexed {  index, previousRow, currentRow ->
-                            if (index < 1) {
-                                currentRow
-                            } else
-                                List(currentRow.size) { currentIndex ->
-                                    if (currentIndex > 0 && currentIndex < previousRow.size) {
-                                        previousRow[currentIndex - 1] + previousRow[currentIndex]
-                                    } else
-                                        1L
-                                }
-                        }
+                        .runningReduceIndexed(::calculateTriangleRowValues)
             }
                     .also { log.info("Pascal triangle with $rows rows: $it") }
+
+    private fun calculateTriangleRowValues(index: Int, previousRow: List<Long>, currentRow: List<Long>) =
+        if (index < 1) {
+            currentRow
+        } else {
+            List(currentRow.size) { currentIndex ->
+                if (currentIndex > 0 && currentIndex < previousRow.size) {
+                    previousRow[currentIndex - 1] + previousRow[currentIndex]
+                } else
+                    1L
+            }
+    }
 
     private fun createTriangleRow(it: Int) = List(it) { value -> value + 1L }
 
