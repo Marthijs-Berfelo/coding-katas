@@ -6,8 +6,7 @@ import org.junit.jupiter.api.Test
 
 @DisplayName("Pascal triangle should")
 class PascalTriangleTest {
-    // TODO: create triangle for 1 row with result [1]
-    // TODO: create triangle for 2 rows with result [1,1] 
+    // TODO: create triangle for 2 rows with result [1,1]
     // TODO: create triangle for 3 rows with result [1,2,1] 
     // TODO: create triangle for 4 rows with result [1,3,3,1] 
     // TODO: create triangle for 5 rows with result [1,4,6,4,1] 
