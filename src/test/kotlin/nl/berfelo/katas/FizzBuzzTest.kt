@@ -6,9 +6,6 @@ import org.junit.jupiter.api.Test
 
 @DisplayName("Fizz Buzz should")
 class FizzBuzzTest {
-    // TODO: return "Buzz" when input is 5
-    // TODO: return "Buzz" when input is 10
-    // TODO: return "FizzBuzz" when input is 15
     // TODO: return "FizzBuzz" when input is 30
 
     private val kata = StringKata()
@@ -48,5 +45,12 @@ class FizzBuzzTest {
         val input = 10
         assertThat(kata.fizzBuzz(input))
                 .isEqualTo("Buzz")
+    }
+    @Test
+    @DisplayName("return 'FizzBuzz' when input is 15")
+    fun convertFifteenToFizzBuzz() {
+        val input = 15
+        assertThat(kata.fizzBuzz(input))
+                .isEqualTo("FizzBuzz")
     }
 }
