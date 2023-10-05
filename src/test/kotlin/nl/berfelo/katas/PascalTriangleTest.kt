@@ -25,10 +25,21 @@ class PascalTriangleTest {
     }
 
     @Test
-    @DisplayName("create triangle for 1 row with result [1]")
+    @DisplayName("create triangle for 1 row with result [[1]]")
     fun singleRowTriangle() {
         assertThat(triangle.create(1))
                 .hasSize(1)
                 .containsExactly(listOf(1))
+    }
+
+    @Test
+    @DisplayName("create triangle for 2 rows with result [[1],[1,1]]")
+    fun twoRowsTriangle() {
+        assertThat(triangle.create(2))
+                .hasSize(2)
+                .containsExactly(
+                        listOf(1),
+                        listOf(1,1)
+                )
     }
 }
