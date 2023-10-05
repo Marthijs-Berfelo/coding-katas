@@ -6,8 +6,6 @@ import org.junit.jupiter.api.Test
 
 @DisplayName("Fizz Buzz should")
 class FizzBuzzTest {
-    // TODO: return "Fizz" when input is 3
-    // TODO: return "Fizz" when input is 6
     // TODO: return "Buzz" when input is 5
     // TODO: return "Buzz" when input is 10
     // TODO: return "FizzBuzz" when input is 15
@@ -18,7 +16,7 @@ class FizzBuzzTest {
     @Test
     @DisplayName("return input as string")
     fun convertInputToText() {
-        val input = 0
+        val input = 1
         assertThat(kata.fizzBuzz(input))
                 .isEqualTo("$input")
     }
