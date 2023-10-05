@@ -2,5 +2,5 @@ package nl.berfelo.katas
 
 class StringKata {
 
-    fun fizzBuzz(input: Int): String = ""
+    fun fizzBuzz(input: Int): String = "$input"
 }

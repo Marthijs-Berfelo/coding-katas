@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test
 
 @DisplayName("Fizz Buzz should")
 class FizzBuzzTest {
-    // TODO: return input as string
     // TODO: return "Fizz" when input is divisible by 3
     // TODO: return "Buzz" when input is divisible by 5
     // TODO: return "FizzBuzz" when input is divisible by 3 and 5
