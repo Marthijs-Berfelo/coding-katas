@@ -8,11 +8,22 @@ class StringKata {
      * @see <a href="https://tddmanifesto.com/exercises/">TDD manifesto Exercises</a>
      */
     fun fizzBuzz(input: Int): String =
-            if (input % 3 == 0) {
-                "Fizz"
-            } else if (input % 5 == 0) {
-                "Buzz"
-            } else {
-                input.toString()
-            }
+            ""
+                    .let {
+                        if (input % 3 == 0) {
+                            it.plus("Fizz")
+                        } else {
+                            it
+                        }
+                    }
+                    .let {
+                        if (input % 5 == 0) {
+                            it.plus("Buzz")
+                        } else {
+                            it
+                        }
+                    }
+                    .ifBlank {
+                            input.toString()
+                        }
 }
