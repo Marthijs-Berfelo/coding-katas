@@ -6,9 +6,13 @@ import org.junit.jupiter.api.Test
 
 @DisplayName("Fizz Buzz should")
 class FizzBuzzTest {
-    // TODO: return "Fizz" when input is divisible by 3
-    // TODO: return "Buzz" when input is divisible by 5
-    // TODO: return "FizzBuzz" when input is divisible by 3 and 5
+    // TODO: return "Fizz" when input is 3
+    // TODO: return "Fizz" when input is 6
+    // TODO: return "Buzz" when input is 5
+    // TODO: return "Buzz" when input is 10
+    // TODO: return "FizzBuzz" when input is 15
+    // TODO: return "FizzBuzz" when input is 30
+
     private val kata = StringKata()
 
     @Test
@@ -17,5 +21,13 @@ class FizzBuzzTest {
         val input = 0
         assertThat(kata.fizzBuzz(input))
                 .isEqualTo("$input")
+    }
+
+    @Test
+    @DisplayName("return 'Fizz' when input is 3")
+    fun convertThreeToFizz() {
+        val input = 3
+        assertThat(kata.fizzBuzz(input))
+                .isEqualTo("Fizz")
     }
 }
