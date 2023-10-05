@@ -13,6 +13,6 @@ class StringKata {
             } else if (input == 5) {
                 "Buzz"
             } else {
-                "$input"
+                input.toString()
             }
 }
