@@ -20,13 +20,12 @@ class PascalTriangle {
                         .runningReduceIndexed {  index, previousRow, currentRow ->
                             if (index < 1) currentRow
                             else
-                                currentRow
-                                        .mapIndexed { currentIndex, value ->
-                                            if (currentIndex > 0 && currentIndex < previousRow.size)
-                                                previousRow[currentIndex - 1] + previousRow[currentIndex]
-                                            else
-                                                1L
-                                        }
+                                List(currentRow.size) { currentIndex ->
+                                    if (currentIndex > 0 && currentIndex < previousRow.size)
+                                        previousRow[currentIndex - 1] + previousRow[currentIndex]
+                                    else
+                                        1L
+                                }
                         }
             }
                     .also { log.info("Pascal triangle with $rows rows: $it") }
