@@ -16,7 +16,7 @@ class PascalTriangle {
                 emptyList()
             } else {
                 (1..rows)
-                        .map { createTriangleRow(it) }
+                        .map(::createTriangleRow)
                         .mapIndexed { index, currentRow ->
                             if (index < 1) currentRow
                             else
