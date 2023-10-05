@@ -16,7 +16,18 @@ class PascalTriangle {
                 emptyList()
             } else {
                 (1..rows)
-                        .map { List(it) { 1L } }
+                        .map { List(it) { value -> value + 1L } }
+                        .mapIndexed { index, currentRow ->
+                            if (index < 1) currentRow
+                            else
+                                currentRow
+                                        .mapIndexed { currentIndex, value ->
+                                            if (currentIndex > 0 && currentIndex < currentRow.size -1)
+                                                value
+                                            else
+                                                1L
+                                        }
+                        }
             }
                     .also { log.info("Pascal triangle with $rows rows: $it") }
 
