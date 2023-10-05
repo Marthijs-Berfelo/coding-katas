@@ -21,9 +21,9 @@ class PascalTriangle {
                             if (index < 1) currentRow
                             else
                                 List(currentRow.size) { currentIndex ->
-                                    if (currentIndex > 0 && currentIndex < previousRow.size)
+                                    if (currentIndex > 0 && currentIndex < previousRow.size) {
                                         previousRow[currentIndex - 1] + previousRow[currentIndex]
-                                    else
+                                    } else
                                         1L
                                 }
                         }
