@@ -2,8 +2,13 @@ package nl.berfelo.katas
 
 class StringKata {
 
+    /**
+     * Fizz buzz kata.
+     *
+     * @see <a href="https://tddmanifesto.com/exercises/">TDD manifesto Exercises</a>
+     */
     fun fizzBuzz(input: Int): String =
-            if (input == 3) {
+            if (input % 3 == 0) {
                 "Fizz"
             } else {
                 "$input"
