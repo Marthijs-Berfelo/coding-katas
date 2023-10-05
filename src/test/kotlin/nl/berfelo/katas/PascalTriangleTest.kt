@@ -60,4 +60,17 @@ class PascalTriangleTest {
                         listOf(1,3,3,1),
                 )
     }
+
+    @Test
+    @DisplayName("create triangle for 5 rows with result [[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]]")
+    fun fiveRowsTriangle() {
+        assertThat(triangle.create(5))
+                .containsExactly(
+                        listOf(1),
+                        listOf(1,1),
+                        listOf(1,2,1),
+                        listOf(1,3,3,1),
+                        listOf(1,4,6,4,1),
+                )
+    }
 }
