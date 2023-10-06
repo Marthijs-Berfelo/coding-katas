@@ -10,6 +10,10 @@ class FizzBuzzTest {
 
     private val kata = StringKata()
 
+    private companion object {
+        private const val FIZZ = "Fizz"
+        private const val BUZZ = "Buzz"
+    }
     @Test
     @DisplayName("return input as string")
     fun convertInputToText() {
@@ -23,34 +27,39 @@ class FizzBuzzTest {
     fun convertThreeToFizz() {
         val input = 3
         assertThat(kata.fizzBuzz(input))
-                .isEqualTo("Fizz")
+                .isEqualTo(FIZZ)
     }
+
     @Test
     @DisplayName("return 'Fizz' when input is 6")
     fun convertSixToFizz() {
         val input = 6
         assertThat(kata.fizzBuzz(input))
-                .isEqualTo("Fizz")
+                .isEqualTo(FIZZ)
     }
+
     @Test
     @DisplayName("return 'Buzz' when input is 5")
     fun convertFiveToBuzz() {
         val input = 5
         assertThat(kata.fizzBuzz(input))
-                .isEqualTo("Buzz")
+                .isEqualTo(BUZZ)
     }
+
     @Test
     @DisplayName("return 'Buzz' when input is 10")
     fun convertTenToBuzz() {
         val input = 10
         assertThat(kata.fizzBuzz(input))
-                .isEqualTo("Buzz")
+                .isEqualTo(BUZZ)
     }
+
     @Test
     @DisplayName("return 'FizzBuzz' when input is 15")
     fun convertFifteenToFizzBuzz() {
         val input = 15
         assertThat(kata.fizzBuzz(input))
-                .isEqualTo("FizzBuzz")
+                .isEqualTo("$FIZZ$BUZZ")
     }
+
 }
