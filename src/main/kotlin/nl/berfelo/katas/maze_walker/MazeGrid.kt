@@ -8,4 +8,9 @@ class MazeGrid(
         val finish: Point
 )
 
-fun parseGrid(grid: String): MazeGrid = throw IllegalArgumentException("Maze should have a start position set.")
+fun parseGrid(grid: String): MazeGrid =
+        if (!grid.contains("S"))
+            throw IllegalArgumentException("Maze should have a start position set.")
+        else
+            throw IllegalArgumentException("Maze should have a finish position set.")
+
