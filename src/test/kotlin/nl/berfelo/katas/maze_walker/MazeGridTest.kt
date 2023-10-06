@@ -7,9 +7,9 @@ import org.junit.jupiter.api.Test
 @DisplayName("Maze grid should")
 class MazeGridTest {
     // TODO: parse grid of 1 line
-    // TODO: parse grid of 2 lines
     // TODO: parse grid with accessible field
     // TODO parse grid with blocked field
+    // TODO: parse grid of 2 lines
 
     @Test
     @DisplayName("fail to parse grid without Start")
