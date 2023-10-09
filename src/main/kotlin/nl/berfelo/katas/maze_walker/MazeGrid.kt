@@ -17,6 +17,8 @@ fun parseGrid(grid: String): MazeGrid {
         throw IllegalArgumentException("Maze should have a finish position set.")
     else {
         val gridRow = grid.split(" ")
-        MazeGrid(start = Point(gridRow.indexOf(startField), 0), finish = Point(gridRow.indexOf(finishField), 0))
+        MazeGrid(start = findField(gridRow, startField), finish = findField(gridRow, finishField))
     }
 }
+
+private fun findField(gridRow: List<String>, fieldName: String) = Point(gridRow.indexOf(fieldName), 0)
