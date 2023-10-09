@@ -11,14 +11,14 @@ private const val startField = "S"
 private const val finishField = "F"
 
 fun parseGrid(grid: String): MazeGrid {
-    return if (!grid.contains(startField))
+    val gridRow = grid.split(" ")
+    val start = findField(gridRow, startField, 0)
+    val finish = findField(gridRow, finishField, 0)
+    if (start.x < 0)
         throw IllegalArgumentException("Maze should have a start position set.")
-    else if (!grid.contains(finishField))
+    if (finish.x < 0)
         throw IllegalArgumentException("Maze should have a finish position set.")
-    else {
-        val gridRow = grid.split(" ")
-        MazeGrid(start = findField(gridRow, startField, 0), finish = findField(gridRow, finishField, 0))
-    }
+    return MazeGrid(start = start, finish = finish)
 }
 
 private fun findField(gridRow: List<String>, fieldName: String, rowIndex: Int) = Point(gridRow.indexOf(fieldName), rowIndex)
