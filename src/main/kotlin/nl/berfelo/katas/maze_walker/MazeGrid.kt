@@ -15,5 +15,7 @@ fun parseGrid(grid: String): MazeGrid =
             throw IllegalArgumentException("Maze should have a start position set.")
         else if (!grid.contains(finishField))
             throw IllegalArgumentException("Maze should have a finish position set.")
-        else
-            MazeGrid(start = Point(0, 0), finish = Point(1, 0))
+        else {
+            val elements = grid.split(" ")
+            MazeGrid(start = Point(elements.indexOf(startField), 0), finish = Point(elements.indexOf(finishField), 0))
+        }
