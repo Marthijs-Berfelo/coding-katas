@@ -43,4 +43,15 @@ class MazeGridTest {
                 .hasFieldOrProperty("start")
                 .hasFieldOrProperty("finish")
     }
+
+    @Test
+    @Order(4)
+    @DisplayName("parse grid of 1 line with start and finish correctly positioned")
+    fun acceptParsingGridWithPositionedStartAndFinish() {
+        val grid = "SF"
+        assertThat(parseGrid(grid))
+                .isInstanceOf(MazeGrid::class.java)
+                .hasFieldOrPropertyWithValue("start", Point(0, 0))
+                .hasFieldOrPropertyWithValue("finish", Point(1, 0))
+    }
 }
