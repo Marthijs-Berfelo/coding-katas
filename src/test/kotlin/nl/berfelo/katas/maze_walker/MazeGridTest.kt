@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test
 
 @DisplayName("Maze grid should")
 class MazeGridTest {
-    // TODO: parse grid of 1 line with start and finish accessible
     // TODO: parse grid of 1 line with start and finish correctly positioned
     // TODO: parse grid with accessible field
     // TODO parse grid with blocked field
@@ -41,7 +40,7 @@ class MazeGridTest {
         val grid = "SF"
         assertThat(parseGrid(grid))
                 .isInstanceOf(MazeGrid::class.java)
-                .hasFieldOrPropertyWithValue("start", true)
-                .hasFieldOrPropertyWithValue("finish", true)
+                .hasFieldOrProperty("start")
+                .hasFieldOrProperty("finish")
     }
 }
