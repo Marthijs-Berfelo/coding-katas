@@ -3,8 +3,8 @@ package nl.berfelo.katas.maze_walker
 import java.lang.IllegalArgumentException
 
 class MazeGrid(
-        val start: Boolean,
-        val finish: Boolean
+        val start: Point,
+        val finish: Point
 )
 
 private const val startField = "S"
@@ -16,4 +16,4 @@ fun parseGrid(grid: String): MazeGrid =
         else if (!grid.contains(finishField))
             throw IllegalArgumentException("Maze should have a finish position set.")
         else
-            MazeGrid(start = true, finish = true)
+            MazeGrid(start = Point(0, 0), finish = Point(1, 0))
