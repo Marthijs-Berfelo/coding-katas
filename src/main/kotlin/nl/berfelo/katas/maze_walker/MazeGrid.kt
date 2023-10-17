@@ -25,4 +25,5 @@ fun parseGrid(grid: String): MazeGrid {
 
 private fun isFieldAccessible(it: String) = it != blockedField
 
-private fun findField(gridRow: List<String>, fieldName: String, rowIndex: Int) = Point(gridRow.indexOf(fieldName), rowIndex)
+private fun findField(gridRow: List<String>, fieldName: String, rowIndex: Int) =
+    Point(gridRow.indexOf(fieldName), rowIndex)
