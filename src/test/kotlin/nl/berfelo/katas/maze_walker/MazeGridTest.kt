@@ -76,4 +76,13 @@ class MazeGridTest {
         assertThat(parseGrid(grid).maze)
             .containsExactly(listOf(true, true))
     }
+
+    @Test
+    @Order(7)
+    @DisplayName("parse grid with blocked field")
+    fun parseGridWithBlockedField() {
+        val grid = "# S F"
+        assertThat(parseGrid(grid).maze)
+            .containsExactly(listOf(false, true, true))
+    }
 }
