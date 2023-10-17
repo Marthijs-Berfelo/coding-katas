@@ -3,12 +3,15 @@ package nl.berfelo.katas.maze_walker
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.junit.jupiter.api.DisplayName
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.TestMethodOrder
 
 @DisplayName("Maze grid should")
+@TestMethodOrder(OrderAnnotation::class)
 class MazeGridTest {
-    // TODO: parse grid of 1 line with start and finish correctly positioned
+    // TODO: parse grid of 1 line with start and finish accessible
     // TODO: parse grid with accessible field
     // TODO parse grid with blocked field
     // TODO: parse grid of 2 lines
@@ -64,6 +67,14 @@ class MazeGridTest {
                 .isInstanceOf(MazeGrid::class.java)
                 .hasFieldOrPropertyWithValue("start", Point(1, 0))
                 .hasFieldOrPropertyWithValue("finish", Point(0, 0))
+    }
 
+    @Test
+    @Order(6)
+    @DisplayName("parse grid of 1 line with start and finish accessible")
+    fun parseGridWithStartAndFinishAccessible() {
+        val grid = "S F"
+        assertThat(parseGrid(grid).maze)
+            .containsExactly(listOf(true, true))
     }
 }
