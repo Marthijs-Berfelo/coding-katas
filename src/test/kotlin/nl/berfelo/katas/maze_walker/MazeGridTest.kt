@@ -103,8 +103,7 @@ class MazeGridTest {
             F .
             # #
         """.trimIndent()
-        val result = parseGrid(grid)
-        assertThat(result)
+        assertThat(parseGrid(grid))
             .hasFieldOrPropertyWithValue("start", Point(1, 0))
             .hasFieldOrPropertyWithValue("finish", Point(0, 2))
             .hasFieldOrPropertyWithValue("maze", listOf(
@@ -113,6 +112,25 @@ class MazeGridTest {
                 listOf(true, true),
                 listOf(false, false)
             )
+            )
+    }
+
+    @Test
+    @Order(10)
+    @DisplayName("parse maze one")
+    fun parseMazeOne() {
+        assertThat(parseGrid(mazeOne))
+            .hasFieldOrPropertyWithValue("start", Point(1,0))
+            .hasFieldOrPropertyWithValue("finish", Point(5,3))
+            .hasFieldOrPropertyWithValue("maze",
+                listOf(
+                    listOf(false, true, false, false, false, false),
+                    listOf(false, true, true, true, true, false),
+                    listOf(false, false, true, false, false, false),
+                    listOf(false, true, true, true, true, true),
+                    listOf(false, false, false, true, false, false),
+                    listOf(false, false, false, false, false, false)
+                )
             )
     }
 }
