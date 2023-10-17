@@ -19,7 +19,9 @@ fun parseGrid(grid: String): MazeGrid {
         throw IllegalArgumentException("Maze should have a start position set.")
     if (finish.x < 0)
         throw IllegalArgumentException("Maze should have a finish position set.")
-    return MazeGrid(start = start, finish = finish, listOf(gridRow.map { it != "#" }))
+    return MazeGrid(start = start, finish = finish, listOf(gridRow.map(::isFieldAccessible)))
 }
+
+private fun isFieldAccessible(it: String) = it != "#"
 
 private fun findField(gridRow: List<String>, fieldName: String, rowIndex: Int) = Point(gridRow.indexOf(fieldName), rowIndex)
