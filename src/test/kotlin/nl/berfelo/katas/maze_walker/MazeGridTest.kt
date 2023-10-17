@@ -11,9 +11,8 @@ import org.junit.jupiter.api.TestMethodOrder
 @DisplayName("Maze grid should")
 @TestMethodOrder(OrderAnnotation::class)
 class MazeGridTest {
-    // TODO: parse grid of 1 line with start and finish accessible
-    // TODO: parse grid with accessible field
     // TODO parse grid with blocked field
+    // TODO: parse grid with accessible field
     // TODO: parse grid of 2 lines
 
     @Test
