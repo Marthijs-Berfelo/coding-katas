@@ -11,7 +11,6 @@ import org.junit.jupiter.api.TestMethodOrder
 @DisplayName("Maze grid should")
 @TestMethodOrder(OrderAnnotation::class)
 class MazeGridTest {
-    // TODO parse grid with blocked field
     // TODO: parse grid with accessible field
     // TODO: parse grid of 2 lines
 
@@ -84,5 +83,14 @@ class MazeGridTest {
         val grid = "# S F"
         assertThat(parseGrid(grid).maze)
             .containsExactly(listOf(false, true, true))
+    }
+
+    @Test
+    @Order(8)
+    @DisplayName("parse grid with accessible field")
+    fun parseGridWithAccessibleField() {
+        val grid = "S . F"
+        assertThat(parseGrid(grid).maze)
+            .containsExactly(listOf(true, true, true))
     }
 }
