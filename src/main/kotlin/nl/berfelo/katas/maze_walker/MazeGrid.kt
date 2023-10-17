@@ -10,6 +10,7 @@ class MazeGrid(
 
 private const val startField = "S"
 private const val finishField = "F"
+private const val blockedField = "#"
 
 fun parseGrid(grid: String): MazeGrid {
     val gridRow = grid.split(" ")
@@ -22,6 +23,6 @@ fun parseGrid(grid: String): MazeGrid {
     return MazeGrid(start = start, finish = finish, listOf(gridRow.map(::isFieldAccessible)))
 }
 
-private fun isFieldAccessible(it: String) = it != "#"
+private fun isFieldAccessible(it: String) = it != blockedField
 
 private fun findField(gridRow: List<String>, fieldName: String, rowIndex: Int) = Point(gridRow.indexOf(fieldName), rowIndex)
