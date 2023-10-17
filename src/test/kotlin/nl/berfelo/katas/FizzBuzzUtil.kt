@@ -93,6 +93,8 @@ object FizzBuzzUtil {
                     85 to BUZZ,
                     86 to "86",
                     87 to FIZZ,
+                    88 to "88",
+                    89 to "89",
                     90 to "${FIZZ}${BUZZ}",
                     91 to "91",
                     92 to "92",
