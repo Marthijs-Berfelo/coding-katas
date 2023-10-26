@@ -7,11 +7,16 @@ import org.junit.jupiter.api.MethodOrderer.OrderAnnotation
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestMethodOrder
+import kotlin.math.pow
+import kotlin.system.exitProcess
 
 @DisplayName("Maze grid should")
 @TestMethodOrder(OrderAnnotation::class)
 class MazeGridTest {
-    // TODO: parse grid of 2 lines
+    // TODO: allow access to accessible position
+    // TODO: reject access to blocked position
+    // TODO: reject access to position on non-existent row
+    // TODO: reject access to position on non-existent column
 
     @Test
     @Order(1)
@@ -133,4 +138,15 @@ class MazeGridTest {
                 )
             )
     }
+
+    @Test
+    @Order(11)
+    @DisplayName("allow access to accessible grid position")
+    fun allowAccessToAccessiblePoint() {
+        val grid = "S . F"
+        val accessiblePoint = Point(0, 1)
+        val maze = parseGrid(grid)
+        assertThat(maze.isFieldAccessible(accessiblePoint)).isTrue()
+    }
+
 }
