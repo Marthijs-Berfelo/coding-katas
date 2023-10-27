@@ -157,4 +157,13 @@ class MazeGridTest {
         val maze = parseGrid(grid)
         assertThat(maze.isFieldAccessible(accessiblePoint)).isFalse()
     }
+    @Test
+    @Order(13)
+    @DisplayName("reject access to non-existent position")
+    fun rejectAccessToNonExistentPoint() {
+        val grid = "# S . F"
+        val accessiblePoint = Point(1, 0)
+        val maze = parseGrid(grid)
+        assertThat(maze.isFieldAccessible(accessiblePoint)).isFalse()
+    }
 }
