@@ -7,7 +7,7 @@ class MazeGrid(
     val finish: Point,
     val maze: List<List<Boolean>>
 ) {
-    fun isFieldAccessible(accessiblePoint: Point): Boolean = false
+    fun isFieldAccessible(accessiblePoint: Point): Boolean = true
 }
 
 private const val startField = "S"
