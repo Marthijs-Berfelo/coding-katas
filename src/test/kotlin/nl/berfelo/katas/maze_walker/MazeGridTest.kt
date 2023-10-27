@@ -13,7 +13,6 @@ import kotlin.system.exitProcess
 @DisplayName("Maze grid should")
 @TestMethodOrder(OrderAnnotation::class)
 class MazeGridTest {
-    // TODO: allow access to accessible position
     // TODO: reject access to blocked position
     // TODO: reject access to position on non-existent row
     // TODO: reject access to position on non-existent column
@@ -149,4 +148,13 @@ class MazeGridTest {
         assertThat(maze.isFieldAccessible(accessiblePoint)).isTrue()
     }
 
+    @Test
+    @Order(12)
+    @DisplayName("reject access to blocked position")
+    fun rejectAccessToBlockedPoint() {
+        val grid = "# S . F"
+        val accessiblePoint = Point(0, 0)
+        val maze = parseGrid(grid)
+        assertThat(maze.isFieldAccessible(accessiblePoint)).isFalse()
+    }
 }
