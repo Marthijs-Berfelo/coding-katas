@@ -13,9 +13,6 @@ import kotlin.system.exitProcess
 @DisplayName("Maze grid should")
 @TestMethodOrder(OrderAnnotation::class)
 class MazeGridTest {
-    // TODO: reject access to blocked position
-    // TODO: reject access to position on non-existent row
-    // TODO: reject access to position on non-existent column
 
     @Test
     @Order(1)
