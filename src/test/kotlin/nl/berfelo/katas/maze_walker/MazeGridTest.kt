@@ -140,7 +140,7 @@ class MazeGridTest {
     @DisplayName("allow access to accessible grid position")
     fun allowAccessToAccessiblePoint() {
         val grid = "S . F"
-        val accessiblePoint = Point(0, 1)
+        val accessiblePoint = Point(1, 0)
         val maze = parseGrid(grid)
         assertThat(maze.isFieldAccessible(accessiblePoint)).isTrue()
     }
@@ -159,7 +159,7 @@ class MazeGridTest {
     @DisplayName("reject access to non-existent position")
     fun rejectAccessToNonExistentPoint() {
         val grid = "# S . F"
-        val accessiblePoint = Point(1, 0)
+        val accessiblePoint = Point(0, 1)
         val maze = parseGrid(grid)
         assertThat(maze.isFieldAccessible(accessiblePoint)).isFalse()
     }

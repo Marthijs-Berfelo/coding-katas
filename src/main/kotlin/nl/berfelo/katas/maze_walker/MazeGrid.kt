@@ -9,7 +9,7 @@ class MazeGrid(
 ) {
     fun isFieldAccessible(accessiblePoint: Point): Boolean =
         runCatching {
-            maze[accessiblePoint.x][accessiblePoint.y]
+            maze[accessiblePoint.y][accessiblePoint.x]
         }
             .getOrDefault(false)
 }
