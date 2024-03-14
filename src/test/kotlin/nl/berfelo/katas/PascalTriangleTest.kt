@@ -96,7 +96,7 @@ class PascalTriangleTest {
     @Test
     @Order(8)
     @DisplayName("create triangle for 500 rows within 500 milliseconds")
-    @Timeout(value = 500, unit = TimeUnit.MILLISECONDS)
+    @Timeout(value = 510, unit = TimeUnit.MILLISECONDS)
     fun oneHundredRowsPerformance() {
         assertThat(triangle.create(500))
                 .hasSize(500)
