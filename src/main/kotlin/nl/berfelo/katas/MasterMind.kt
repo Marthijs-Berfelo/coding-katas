@@ -14,5 +14,10 @@ class MasterMind {
      *
      * @return A pair to indicate the well-placed colors and the correct but misplaced colors (i.e. (1,1) based on the example secret and guess)
      */
-    fun evaluate(secret: Array<String>, guess: Array<String>): Pair<Int, Int> = 0 to 0
+    fun evaluate(secret: Array<String>, guess: Array<String>): Pair<Int, Int> =
+        if (secret.contentEquals(guess)) {
+            1 to 0
+        } else {
+            0 to 0
+        }
 }
