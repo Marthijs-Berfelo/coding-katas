@@ -30,4 +30,22 @@ class MasterMindTest {
                 "correctly guessed expected to be: ${expected.second}"
             )
     }
+
+    @Test
+    @DisplayName("evaluate secret [blue] and guess [blue] to (1,0)")
+    fun evaluateSingleCorrectColor() {
+        val masterMind = MasterMind()
+        val secret = arrayOf("blue")
+        val guess = arrayOf("blue")
+        val expected = 1 to 0
+        assertThat(masterMind.evaluate(secret = secret, guess = guess))
+            .matches(
+                { (correctPlaced, _) -> correctPlaced == expected.first },
+                "correctly placed expected to be: ${expected.first}"
+            )
+            .matches(
+                { (_, correctGuessed) -> correctGuessed == expected.second },
+                "correctly guessed expected to be: ${expected.second}"
+            )
+    }
 }
