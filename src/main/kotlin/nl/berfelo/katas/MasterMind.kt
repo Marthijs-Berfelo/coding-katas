@@ -17,6 +17,11 @@ class MasterMind {
     fun evaluate(secret: Array<String>, guess: Array<String>): Pair<Int, Int> =
         if (secret.contentEquals(guess)) {
             secret.size to 0
+        } else if (secret.any { guess.contains(it) }) {
+            guess
+                .mapIndexed { index, g -> secret[index] == g  }
+                .filter { it }
+                .size to 0
         } else {
             0 to 0
         }
