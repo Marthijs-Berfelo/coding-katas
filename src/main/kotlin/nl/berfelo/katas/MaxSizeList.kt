@@ -1,6 +1,6 @@
 package nl.berfelo.katas
 
-val maxSize = 10
+const val maxSize = 10
 fun List<Int>.update(value: Int) =
     this.plus(value)
         .let {
