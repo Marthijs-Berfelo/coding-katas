@@ -7,9 +7,6 @@ import org.junit.jupiter.api.Test
 
 @DisplayName("Master mind should")
 class MasterMindTest {
-    //TODO evaluate secret [blue, red] and guess [red, green] to (0,1)
-    //TODO evaluate secret [blue, red] and guess [red, blue] to (0,2)
-    //TODO evaluate secret [blue, red, green] and guess [red, green, blue] to (0,3)
 
     private val masterMind = MasterMind()
 
@@ -73,7 +70,18 @@ class MasterMindTest {
             .evaluate(secret = secret, guess = guess)
             .let(::assertThat)
             .matchesPair(expected)
+    }
 
+    @Test
+    @DisplayName("evaluate secret [blue, red, green, yellow] and guess [red, blue, green, yellow] to (2,2)")
+    fun evaluateMultipleContainingAndCorrectColors() {
+        val secret = arrayOf("blue", "red", "green", "yellow")
+        val guess = arrayOf("red", "blue", "green", "yellow")
+        val expected = 2 to 2
+        masterMind
+            .evaluate(secret = secret, guess = guess)
+            .let(::assertThat)
+            .matchesPair(expected)
     }
 
     private fun ObjectAssert<Pair<Int, Int>>.matchesPair(expected: Pair<Int, Int>): ObjectAssert<Pair<Int, Int>> =
