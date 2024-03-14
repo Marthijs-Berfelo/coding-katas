@@ -12,10 +12,11 @@ class MasterMindTest {
     //TODO evaluate secret [blue, red] and guess [red, blue] to (0,2)
     //TODO evaluate secret [blue, red, green] and guess [red, green, blue] to (0,3)
 
+    private val masterMind = MasterMind()
+
     @Test
     @DisplayName("evaluate secret [blue] and guess [red] to (0,0)")
     fun evaluateSingleGuessWithoutMatchingColor() {
-        val masterMind = MasterMind()
         val secret = arrayOf("blue")
         val guess = arrayOf("red")
         val expected = 0 to 0
@@ -33,7 +34,6 @@ class MasterMindTest {
     @Test
     @DisplayName("evaluate secret [blue] and guess [blue] to (1,0)")
     fun evaluateSingleCorrectColor() {
-        val masterMind = MasterMind()
         val secret = arrayOf("blue")
         val guess = arrayOf("blue")
         val expected = 1 to 0
