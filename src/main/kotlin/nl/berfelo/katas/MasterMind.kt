@@ -16,7 +16,7 @@ class MasterMind {
      */
     fun evaluate(secret: Array<String>, guess: Array<String>): Pair<Int, Int> =
         if (secret.contentEquals(guess)) {
-            1 to 0
+            secret.size to 0
         } else {
             0 to 0
         }
