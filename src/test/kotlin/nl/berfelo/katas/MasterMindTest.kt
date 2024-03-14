@@ -21,8 +21,11 @@ class MasterMindTest {
         val secret = arrayOf("blue")
         val guess = arrayOf("red")
         val expected = 0 to 0
-        assertThat(masterMind.evaluate(secret = secret, guess = guess))
+        masterMind
+            .evaluate(secret = secret, guess = guess)
+            .let(::assertThat)
             .matchesPair(expected)
+
     }
 
     @Test
@@ -31,8 +34,11 @@ class MasterMindTest {
         val secret = arrayOf("blue")
         val guess = arrayOf("blue")
         val expected = 1 to 0
-        assertThat(masterMind.evaluate(secret = secret, guess = guess))
+        masterMind
+            .evaluate(secret = secret, guess = guess)
+            .let(::assertThat)
             .matchesPair(expected)
+
     }
 
     @Test
@@ -41,7 +47,9 @@ class MasterMindTest {
         val secret = arrayOf("blue", "red")
         val guess = arrayOf("blue", "red")
         val expected = 2 to 0
-        assertThat(masterMind.evaluate(secret = secret, guess = guess))
+        masterMind
+            .evaluate(secret = secret, guess = guess)
+            .let(::assertThat)
             .matchesPair(expected)
     }
 
