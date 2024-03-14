@@ -16,6 +16,7 @@ class MasterMind {
      */
     fun evaluate(secret: Array<String>, guess: Array<String>): Pair<Int, Int> =
         guess
-            .mapIndexed { index, g -> if (secret[index] == g) 1 to 0 else 0 to 0 }
-            .reduce { acc, pair -> (acc.first + pair.first) to (acc.second + pair.second)  }
+            .mapIndexed { index, g -> secret[index] == g }
+            .filter { it }
+            .size to 0
 }
