@@ -18,5 +18,6 @@ class MasterMind {
         guess
             .mapIndexed { index, g -> secret[index] == g }
             .filter { it }
-            .size to 0
+            .size
+            .let { it to (guess.count { g -> secret.contains(g) } - it) }
 }
