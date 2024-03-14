@@ -35,6 +35,16 @@ class MasterMindTest {
             .matchesPair(expected)
     }
 
+    @Test
+    @DisplayName("evaluate secret [blue, red] and guess [blue, red] to (2,0)")
+    fun evaluateMultipleCorrectColors() {
+        val secret = arrayOf("blue", "red")
+        val guess = arrayOf("blue", "red")
+        val expected = 2 to 0
+        assertThat(masterMind.evaluate(secret = secret, guess = guess))
+            .matchesPair(expected)
+    }
+
     private fun ObjectAssert<Pair<Int, Int>>.matchesPair(expected: Pair<Int, Int>): ObjectAssert<Pair<Int, Int>> =
         matches(
             { (correctPlaced, _) -> correctPlaced == expected.first },
