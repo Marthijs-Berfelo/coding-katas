@@ -1,6 +1,7 @@
 package nl.berfelo.katas
 
 import org.assertj.core.api.Assertions.assertThat
+import org.assertj.core.api.ObjectAssert
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 
@@ -21,14 +22,7 @@ class MasterMindTest {
         val guess = arrayOf("red")
         val expected = 0 to 0
         assertThat(masterMind.evaluate(secret = secret, guess = guess))
-            .matches(
-                { (correctPlaced, _) -> correctPlaced == expected.first },
-                "correctly placed expected to be: ${expected.first}"
-            )
-            .matches(
-                { (_, correctGuessed) -> correctGuessed == expected.second },
-                "correctly guessed expected to be: ${expected.second}"
-            )
+            .matchesPair(expected)
     }
 
     @Test
@@ -38,13 +32,16 @@ class MasterMindTest {
         val guess = arrayOf("blue")
         val expected = 1 to 0
         assertThat(masterMind.evaluate(secret = secret, guess = guess))
-            .matches(
-                { (correctPlaced, _) -> correctPlaced == expected.first },
-                "correctly placed expected to be: ${expected.first}"
-            )
+            .matchesPair(expected)
+    }
+
+    private fun ObjectAssert<Pair<Int, Int>>.matchesPair(expected: Pair<Int, Int>): ObjectAssert<Pair<Int, Int>> =
+        matches(
+            { (correctPlaced, _) -> correctPlaced == expected.first },
+            "correctly placed expected to be: ${expected.first}"
+        )
             .matches(
                 { (_, correctGuessed) -> correctGuessed == expected.second },
                 "correctly guessed expected to be: ${expected.second}"
             )
-    }
 }
