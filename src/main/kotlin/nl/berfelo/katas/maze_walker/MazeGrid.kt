@@ -1,7 +1,5 @@
 package nl.berfelo.katas.maze_walker
 
-import java.lang.IllegalArgumentException
-
 class MazeGrid(
     val start: Point,
     val finish: Point,
@@ -25,10 +23,8 @@ fun parseGrid(grid: String): MazeGrid {
         .map { line -> line.map(::isFieldAccessible) }
     val start = findField(grid, startField)
     val finish = findField(grid, finishField)
-    if (start.x < 0)
-        throw IllegalArgumentException("Maze should have a start position set.")
-    if (finish.x < 0)
-        throw IllegalArgumentException("Maze should have a finish position set.")
+    require(start.x >= 0) { "Maze should have a start position set." }
+    require(finish.x >= 0) { "Maze should have a finish position set." }
     return MazeGrid(start = start, finish = finish, gridElements)
 }
 
