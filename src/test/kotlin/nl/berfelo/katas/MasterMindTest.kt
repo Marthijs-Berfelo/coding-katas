@@ -6,8 +6,7 @@ import org.junit.jupiter.api.Test
 
 @DisplayName("Master mind should")
 class MasterMindTest {
-    //TODO evaluate secret [blue] and guess [blue] to (1,0)
-    //TODO evaluate secret [blue, red] and guess [blue, red] to (3,0)
+    //TODO evaluate secret [blue, red] and guess [blue, red] to (2,0)
     //TODO evaluate secret [blue, red, green] and guess [blue, red, green] to (3,0)
     //TODO evaluate secret [blue, red] and guess [red, green] to (0,1)
     //TODO evaluate secret [blue, red] and guess [red, blue] to (0,2)
